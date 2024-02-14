@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://www.wheelpro.co.uk/spokecalc/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>Spoke length calculator for wheelbuilders</title>
+
+	<meta name="description" content="Take a look at the NEW 2023 calculator. The best spoke length calculator just got better!">
+
+	
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="./calculator-p1a.css">
+
+	<script src="./calculator-cc.js.Без названия" defer=""></script>
+</head>
+
+<body>
+
+
+
+<div id="messageFixedWrap">
+	<div id="messageFixedContent"></div>
+	<button id="fixedClose">Close</button>
+</div>
+
+<div class="layout">
+
+	<div id="saveDataInfoWrap">
+		<div>
+			<p><b>Save your calculation</b></p>
+
+			<p>The menu option "Copy" will copy the calculation to the clipboard. Open up a word processing document or spreadsheet and paste the contents into it. When you build the wheel, open the document and add any information that will prove useful if building the same wheel in the future. Do not edit the calculated spoke lengths, you need these as a reference to what the calculator recommended and what you actually used.</p>
+
+		</div>
+	</div>
+
+	<div id="leftBar">
+
+		<div id="leftWrap">
+
+			<div class="wheelSelector">
+				<select id="fr">
+					<option value="0">Front
+					</option><option value="1">Rear
+				</option></select>
+				<select id="wheelType">
+					<option value="0" selected="">Normal
+					</option><option value="1">Straight pull
+				</option></select>
+
+				<span id="showWheelType" class="showLink">?</span>
+			</div>
+
+			<div style="display:flex; align-items: flex-start;">
+
+				<table id="hub">
+					<tbody>
+						<tr><th colspan="2"><span id="showHubDia" class="showLink">Hub diameter</span>
+
+						</th></tr><tr>
+							<td><input id="pcdL" value="" placeholder="Left">
+							</td><td><input id="pcdR" value="" placeholder="Right">
+
+						</td></tr><tr><th colspan="2"><span id="showFlangeOffset" class="showLink">Flange offset</span>
+						</th></tr><tr>
+							<td><input id="flangeL" value="" placeholder="Left">
+							</td><td><input id="flangeR" value="" placeholder="Right">
+
+					</td></tr></tbody><tbody id="data_spoke_hole_dia" style="display: table-row-group;">
+						<tr>
+							<th colspan="2"><span id="showSpokeHoleDia" class="showLink">Spoke hole dia.</span>
+						</th></tr><tr>
+							<td><input id="holeDia" value="2.6">
+							</td><td><span style="display: none; visibility: visible;" id="togglePair">Paired holes</span>
+
+					</td></tr></tbody><tbody id="data_eccentric_offset" style="display: none;">
+						<tr>
+							<th colspan="2"><span id="showEccentric" class="showLink">Eccentric offset</span>
+						</th></tr><tr>
+							<td><input id="eccOffset" value="">
+
+					</td></tr></tbody><tbody id="data_paired_hub" style="display: none;">
+						<tr><th colspan="2"><span id="showPair" class="showLink"></span>
+						</th></tr><tr>
+							<td><input id="pairValue" value="">
+							</td><td><select id="pairLacing">
+									<option value="9">-
+									</option><option value="0">
+									</option><option value="1">
+								</option></select>
+
+					</td></tr></tbody><tbody id="data_hub_sp" style="display: none;">
+						<tr><th colspan="2"><span id="showSpokeOffset" class="showLink">Spoke offset</span>
+						</th></tr><tr>
+							<td><input id="spOffsetL" value="" placeholder="Left">
+							</td><td><input id="spOffsetR" value="" placeholder="Right">
+
+				</td></tr></tbody></table>
+
+				<div id="mobileNoteWrap">
+					All output is shown below the data entry form.
+				</div>
+
+			</div>
+
+			<table id="rim">
+				<tbody>
+					<tr><th><span id="showErd" class="showLink">ERD</span></th><td><input id="erd" value="">
+						</td><th><span id="showAsym" class="showLink">ASYM</span></th><td><input class="small" id="asym" value="">
+					</td></tr><tr>
+						<th colspan="3"><span id="showWidthHoles" class="showLink">Width between holes</span></th><td><input class="small" id="rimHoleWidth" value="">
+
+				</td></tr></tbody><tbody id="data_g3_width" style="display: none;">
+					<tr>
+						<th colspan="3"><span id="showG3width" class="showLink"></span></th><td><input class="small" id="g3width" value="">
+				</td></tr></tbody>
+			</table>
+
+			<table id="frameOffsetWrap" style="display: none;">
+				<tbody>
+					<tr><th><span id="showFrameOffset" class="showLink">Frame offset</span>
+						</th><td><select id="frameOffset">
+								<option value="0">0
+								</option><option value="1">1
+								</option><option value="2">2
+								</option><option value="3">3
+								</option><option value="4">4
+								</option><option value="5">5
+								</option><option value="6">6
+								</option><option value="7">7
+								</option><option value="8">8
+								</option><option value="9">9
+   								</option><option value="10">10
+								</option><option value="17.5">Fatbike 17.5
+								</option><option value="28">Fatbike 28.0
+							</option></select>
+			</td></tr></tbody></table>
+
+			<div style="display:table;">
+				<table id="config">
+					<thead>
+
+					</thead><tbody id="data_standard_lacing" style="display: table-row-group;">
+						<tr>
+							<th><span id="showSpokes" class="showLink">Spokes</span>
+							</th><td id="spokesContainer">
+								<select id="spokes">
+									<option value="20">20
+                                                                        </option><option value="24">24
+                                                                        </option><option value="28">28
+									</option><option value="32">32
+									</option><option value="36">36
+								</option></select>
+							</td><td id="showFieldSettings" class="showLink">
+
+					</td></tr></tbody><tbody id="data_triplet_spokes" style="display: none;">
+						<tr>
+							<th><span id="showTripletSpokes" class="showLink"></span>
+							</th><td>
+								<select id="tripletSpokes">
+									<option value="18">18
+									</option><option value="21">21
+									</option><option value="24" selected="">24
+									</option><option value="27">27
+								</option></select>
+
+							</td><td id="spokeRatio">
+					</td></tr></tbody>
+
+					<tbody id="data_triplet_lacing" style="display: none;">
+						<tr>
+							<th><span id="showLaceOption" class="showLink"></span>
+							</th><td>
+								<select id="lacingOption">
+									<option value="1">
+									</option><option value="2">
+								</option></select>
+					</td></tr></tbody><tbody>
+						<tr>
+							<th><span id="showCross" class="showLink">Cross</span>
+							</th><td id="crossLeftContainer">
+								<select id="crossL">
+									<option value="-">Left
+									</option><option value="0">0
+									</option><option value="1">1
+									</option><option value="2">2
+									</option><option value="3">3
+									</option><option value="4">4
+								</option></select>
+							</td><td id="crossRightContainer">
+								<select id="crossR">
+									<option value="-">Right
+									</option><option value="0">0
+									</option><option value="1">1
+									</option><option value="2">2
+									</option><option value="3">3
+									</option><option value="4">4
+								</option></select>
+
+					</td></tr></tbody><tbody>
+						<tr>
+							<th><span id="showSpokeDia" class="showLink">Spoke dia.</span>
+							</th><td id="spokeDiaLeftContainer">
+								<select id="spokeDiaL">
+									<option value="-">Left
+									</option><option value="1.5">1.5
+									</option><option value="1.6">1.6
+									</option><option value="1.7">1.7
+									</option><option value="1.8">1.8
+									</option><option value="2.0">2.0
+									</option><option value="2.3">2.3
+								</option></select>
+							</td><td id="spokeDiaRightContainer">
+								<select id="spokeDiaR">
+									<option value="-">Right
+									</option><option value="1.5">1.5
+									</option><option value="1.6">1.6
+									</option><option value="1.7">1.7
+									</option><option value="1.8">1.8
+									</option><option value="2.0">2.0
+									</option><option value="2.3">2.3
+								</option></select>
+				</td></tr></tbody></table>
+			</div> <!-- div around config table -->
+
+		</div> <!-- leftWrap -->
+
+	</div> <!-- leftBar -->
+
+
+
+	<div id="content">
+
+		<div id="header">
+			<div id="saveMenu" style="display:none;">
+
+				<span id="saveDataCopy" class="showLink">Copy</span>
+				<span id="saveDataCancel" class="showLink">Cancel</span>
+
+			</div>
+
+			<div id="menu1">
+				<input id="hubName" type="text" placeholder="Hub name">
+				<input id="rimName" type="text" placeholder="Rim name">
+			</div>
+
+			<div id="menu2">
+				<span style="display:none" id="showCalcLog" class="showLink"></span>
+				<span><a style="color:#000;" href="https://www.wheelpro.co.uk/">Home</a></span>
+				<span style="display:none" id="printPage" class="showLink">Print</span>
+				<span style="display:none" id="saveDataMenuLink" class="showLink"></span>
+				<!-- <span id="showFileData">Data</span> -->
+				<span id="showAbout" class="showLink">About</span>
+				<span id="showHelp" class="showLink">Help</span>
+
+
+				<span class="svgMenuWrapOff" id="svgMenuWrap">
+
+					<span id="svgShow" class="svgLink">Draw</span>
+
+					<div id="svgMenu">
+						<span id="cLeft" class="svgLink"></span>
+						<span id="cRight" class="svgLink"></span>
+						<span id="cLeading" class="svgLink"></span>
+						<span id="cTrailing" class="svgLink"></span>
+						<span id="cLeftColor" class="svgLink"></span>
+						<span id="cGuides" class="svgLink"></span>
+						<span id="cPrint" class="svgLink"></span>
+						<span id="showSvgHelp" class="showLink"></span>
+						<span id="svgReCalc" class="svgLink svgReCalc"></span>
+					</div>
+				</span>
+
+			</div>
+
+		</div>
+
+
+		<div id="contentWrapper">
+
+
+			<div id="message" style="display: block;">
+				<div id="messageText"><h1>Calculation error</h1><p>Hub diameter - left should be greater than zero.</p><p>Hub diameter - right should be greater than zero.</p><p>Flange offset - left should be greater than zero.</p><p>Flange offset - right should be greater than zero.</p><p>Rim erd should be greater than zero.</p><p>Cross - left has invalid characters.</p><p>Cross - right has invalid characters.</p><p>Spoke diameter - left has invalid characters.</p><p>Spoke diameter - right has invalid characters.</p></div>
+			</div>
+
+			<div id="infoHeader" style="display: none;"><span class="infoClose">Close</span></div>
+
+			<div class="info" id="infoAbout" style="display: none;">
+				<h2>Spoke length calculator</h2>
+
+				<h2>THIS CALCULATOR WILL BE REMOVED ON APRIL 1, 2024</h2>
+
+				<p>This calculator has now been replaced by the Spoke Length Project which is part of the package that includes the <a href="https://www.wheelpro.co.uk/wheelbuilding/book.php">new wheelbuilding book</a>.</p>
+
+				<p>You have a couple of options, go forward with the Project Calculator (see the book link for details) and use the most advanced calculator available, or plan your next move to another free calculator. The Project calculator will make all the others obsolete, and will eventually be made into a local download. It all costs the same as coffee and a sandwich (and you get the book as well).</p>
+
+
+				<p>Saved url's from this calculator are compatible with the project calculator by making a small edit:</p>
+
+<pre>www.wheelpro.co.uk/spokecalc/?a=44.5&amp;b=44.5&amp;c=31.5&amp;d=24&amp;f=2.6...
+
+needs changing to
+
+spokelength-project.com/calculator/?a=44.5&amp;b=44.5&amp;c=31.5&amp;d=24&amp;f=2.6...
+
+</pre>
+
+			</div>
+
+			<div class="info" id="generalInfo"></div>
+
+			<div class="info" id="internalSettings">
+
+				<p></p>
+				<span id="cNR" class="svgLink"></span> <span id="cSZ" class="svgLink"></span>
+
+			</div>
+
+			<div class="info" id="fieldSettings">
+
+				<p>Data entry settings :</p>
+
+				<table id="freeFormatSettings">
+					<tbody><tr><td>Spokes </td><td><span id="spokesToggle" class="selectLink">Select list</span>
+
+					</td></tr><tr><td>Cross  </td><td><span id="crossLeftToggle" class="selectLink">Select list</span>
+								   </td><td><span id="crossRightToggle" class="selectLink">Select list</span>
+
+					</td></tr><tr><td>Spoke dia. </td><td><span id="spokeDiaLeftToggle" class="selectLink">Select list</span>
+									   </td><td><span id="spokeDiaRightToggle" class="selectLink">Select list</span>
+				</td></tr></tbody></table>
+
+			</div>
+
+			<div class="info" id="infoWheelType">
+
+				<div id="type0" style="display: block;">
+					<h2>Normal</h2>
+					<p>A hub using J bend spokes.</p>
+
+					<p>The hub and rim have the same number of equally spaced holes. </p>
+
+					<p>The spoke diameter is important, do not guess this entry!</p>
+				</div>
+
+				<div id="type1" style="display: none;">
+					<h2>Straight pull hub</h2>
+					<p>A hub using straight pull spokes.</p>
+					<p>The geometry of the hub will dictate the cross pattern. Click "Cross" in the data entry form for additional notes on straight pull cross patterns.</p>
+					<p>The spoke offset is important, do not guess this entry!</p>
+					<p>The spoke diameter is important, do not guess this entry!</p>
+
+				</div>
+
+				<div id="type2" style="display: none;">
+
+
+				</div>
+
+				<div id="type3" style="display: none;">
+
+				</div>
+
+				<div id="type4" style="display: none;">
+
+
+				</div>
+			</div>
+
+
+			<div class="info" id="infoHelp">
+
+
+				<p>Every heading in the data entry form and spoke table is clickable and shows detailed information for the particular data input. Make sure you click the heading "Spoke dia" because it's important. Make sure you click the heading "Spoke lengths" in the spoke length table because it tells you how to round the spoke lengths. Calculate button, click anywhere on the background of the data entry form.</p>
+
+				<p>For use with stainless steel spokes. It cannot be used for titanium spokes, or any other spoke material, because those materials have different elongation properties.</p>
+				<p>
+				Select lists are used for spokes, cross and spoke diameter. If you require a value that is not in the list, then change the entry to User Input. Click the space on the data entry form to the right of the entry for spokes and a settings box will be shown allowing you to change from Select list to User input.</p>
+				<p><span id="version" style="display:none;">public-1</span></p>
+
+
+			</div>
+
+			<div class="info" id="infoHubDia">
+				<h1>Hub diameter</h1>
+				<p>For normal hubs, this is the diameter of the hub flange measured spoke hole centre to centre, sometimes referred to as the PCD (pitch circle diameter).</p>
+
+				<h2>Straight pull hubs</h2>
+
+				<p>For cross laced straight pull hubs, the measurement is taken at the extended crossing point of two spokes. If the spokes are close to tangent then the diameter can be measured to the centre of the spoke holes, if they are not tangent (as shown in this diagram) then it's the midpoint between the diameters of the spoke entry and exit holes. A small error when measuring the diameter on cross laced wheels will not affect the spoke lengths.</p>
+				<img alt="Straightpull hub diameter" src="./sp-diameter.png" width="257" height="252">
+
+				<p>For radial straight pull hubs the diameter is measured at the position where the spoke seats.</p>
+			</div>
+
+			<div class="info" id="infoFlangeOffset">
+				<h1>Flange offset</h1>
+				<p>The distance from the hub centre line to the centre of the Left and Right flanges.</p>
+				<p><img alt="Hub flange offset" src="./flange-offsets3.png"></p>
+				<p>The red line is the centre line between the ends of the hub (the faces that locate on the fork or frame).</p>
+
+				<h2>Measuring the offsets</h2>
+				<p style="margin-bottom:2em">A rear hub is shown, but the procedure is exactly the same for front hubs and any other type of hub you come across. The calculator requires the centre to left flange and centre to right flange dimensions. This is how you do it...</p>
+
+				<img alt="Measuring hub flange offsets" src="./flange-offsets-measure3.png" width="301" height="316">
+
+
+				<p>Measure x and y, then:</p>
+				<p><b>L</b>&nbsp;=&nbsp;h&nbsp;-&nbsp;x</p>
+				<p><b>R</b>&nbsp;=&nbsp;h&nbsp;-&nbsp;y</p>
+				<p>Where h&nbsp;=&nbsp;half the hub width.
+				</p><p>Always check your calculation. Measure between the flanges (dimension W) and it should be the same as L + R</p>
+
+				<div style="display:none;">
+
+				<h2>The quick way</h2>
+				<p>Measure x and y and pop the values into this calculator along with your hub width. As a final check, make sure the value of W matches the measurement between the flanges of your hub.</p>
+
+				<div id="offsetCalcWrap">
+					<table>
+						<tbody>
+							<tr>
+								<td>Hub width</td><td class="offsetValue"><input id="offsetH">
+								</td><td>x</td><td class="offsetValue"><input id="offsetX">
+								</td><td>y</td><td class="offsetValue"><input id="offsetY">
+							</td></tr>
+							<tr>
+								<td style="text-align:right">W</td><td><input class="offsetW" id="offsetW">
+								</td><td>L</td><td><input class="offsetResult" id="offsetL">
+								</td><td>R</td><td><input class="offsetResult" id="offsetR">
+							</td></tr>
+							<tr>
+								<td colspan="6" class="offsetButton"><button id="offsetButton">Copy offsets to the data entry form</button>
+							</td></tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div> <!-- disp none -->
+
+
+			</div>
+
+			<div class="info" id="infoSpokeHoleDia">
+				<h1>Spoke hole diameter</h1>
+				<p>The diameter of the spoke holes in the hub.</p>
+				<p>Good quality hubs have a spoke hole diameter of around 2.5mm or 2.6mm. You don't measure this yourself, it's usually available on the hub manufacturers website. If you can't find it (or don't want to bother looking) then use 2.6mm. Let's say you used 2.6 and the value should have been 2.5 or 2.7, the spoke length error would only be 0.05mm.</p>
+			</div>
+
+			<div class="info" id="infoEccentric">
+			</div>
+
+			<div class="info" id="infoSpokeOffset">
+				<h1>Spoke offset</h1>
+				<p>This is only used on straightpull hubs.</p>
+				<p>The measurement is taken from the centre line to where the spoke head seats. It can be either positive, negative or zero depending on the hub design. For a negative offset enter the value with a - (minus) sign.</p>
+
+				<p>For a radially laced straight pull hub, the offset is zero.</p>
+
+				<p>It is important to use an accurate measurement for the spoke offset because it directly influences the spoke length, for example a measuring error of 1mm will result in 1mm error in the spoke length. The offset is difficult to measure yourself and the hub manufacturer should give you this value.</p>
+
+
+				<div style="display:flex; flex-wrap:wrap">
+					<div style="text-align:center; margin-right:10px;padding:3px; margin-bottom:10px; background-color:#eee;">
+						<img alt="Straightpull hub positive offset" src="./sp-positive-offset.png" width="305" height="213">
+						<br><b>Positive offset</b>
+					</div>
+
+					<div style="text-align:center; padding:3px; margin-bottom:10px; background-color:#eee;">
+						<img alt="Straightpull hub negative offset" src="./sp-negative-offset.png" width="305" height="213">
+						<br><b>Negative offset</b>
+					</div>
+				</div>
+			</div>
+
+			<div class="info" id="infoPair">
+
+			</div>
+
+			<div class="info" id="infoErd">
+				<h1>Rim ERD</h1>
+				<p>The Effective Rim Diameter. You are strongly advised to measure the ERD yourself because ERD's from other sources are often wrong.</p>
+
+				<h2>The correct position of the ERD</h2>
+
+				<p>It is important to measure the ERD using the same type of nipple that you are building the wheel with. If you record your erd measurement for future use, always include the type of nipple you used when measuring it.</p>
+
+				<p>Take two spokes and cut them down to exactly 200mm. Screw a nipple onto each measuring spoke using light finger pressure tighten it until it goes no further,<sup>*</sup> then back it off 2.5mm (for the 56tpi spoke thread, this is 5.5 turns). It's a good idea to glue or crimp the nipples in place to prevent accidental movement during the measuring process. That's the ideal position for the erd, and this calculator will calculate an accurate spoke length that reaches this position. With this calculator, the rule for rounding the spoke lengths is to round <b>up</b> by up to 2mm, which means you will not bottom out on the threads, and you will always find a choice of an odd or even spoke length.</p>
+
+				<p>Place in opposite holes in the rim, and hold taut with no tilting (up and down or sideways). Measure between the ends and add 400mm. Average several diameters.</p>
+
+
+
+				<p><img alt="Rim measuring tools" src="./rim2.gif"><br><br><br>
+				<img alt="Rim measuring technique" src="./rim1.gif"></p>
+
+
+				<p>If you are using rim washers, then measure the ERD as described <b>without the washers</b>, then measure the thickness of the washer and add twice this to the measurement. Do not place the washers in the rim whilst measuring the ERD, because with only light pressure applied to the measuring spokes, the washers may not sit completely flush in the rim, and may give a false (over sized) ERD measurement.</p>
+
+
+				<p><sup>*</sup> Light finger pressure will not work if the nipple is a self locking design using adhesive, such as the DT nipples that use Proloc, because you won't be able to tighten it to the correct position using finger pressure alone. For this type of nipple, remove the adhesive by continually spinning the nipple up and down the spoke thread using finger pressure, and eventually it will completely free up and be the same as a nipple without adhesive. For Sapim Secure Lock nipples that use a deformed nipple thread, then I can't help you because I do not use these.</p>
+
+			</div>
+
+			<div class="info" id="infoAsym">
+				<h1>Asymmetric rims</h1>
+				<p>If your rim is an asymmetric design with an offset spoke bed, then specify the amount of offset here. The rim manufacturer will tell you the amount of offset which is typically around 4mm. Asymmetric rims are used to improve the tension balance on dished wheels.</p>
+
+
+
+				<p>When you calculate a spoke table, there will be a note advising you which way to orientate the rim when building the wheel, and you <b>must</b> follow the advised orientation because the left/right spoke lengths are calculated based on the specified orientation.</p>
+
+
+			</div>
+
+			<div class="info" id="infoWidthHoles">
+				<h1>Width between holes</h1>
+				<p>If there is a measurable gap between the left and right spoke holes then enter it here.</p>
+
+				<p>Most rims are centrally drilled, or with a negligible left/right spoke hole stagger, and for these rims, the width between the holes is zero (or just leave the entry blank).</p>
+
+				<p>Fatbike rims tend to have a wide hole spacing, and often a double row of spoke holes. Enter the width between the holes, measured centre to centre.</p>
+				<img alt="Dimension between rim holes" src="./fatrimholes.png">
+
+
+				<h2>Lacing pattern</h2>
+				<p>If a spoke hole width is specified, then the spoke length calculation assumes normal lacing where the spokes from the hub flange do not cross over to the opposite side of the rim. The exception is Fatbike wheels for offset frames (eg. Surly Pugsley), where the spokes are laced to the right hand set of rim holes.</p>
+			</div>
+
+
+			<div class="info" id="infoFrameOffset">
+				<h1>Frame offset</h1>
+
+				<p>An offset frame shifts the position of the rear hub outwards towards the right, which affects the spoke lengths. The frame manufacturer will tell you the offset value. An example of an offset frame is the Cannondale AI (Asymmetric Integration) frame, that has an offset of 6mm.</p>
+
+				<p>The more common symmetric frame has an offset of zero. </p>
+
+				<h2>Fatbike offset frames</h2>
+				<p>Examples of Fatbike offset frames are the Surly Pugsley (offset 17.5mm) and the Surly Moonlander (offset 28mm). These offset frames use a standard 135mm freehub, and to achieve the correct tension balance you cannot use a rim with centrally drilled holes.</p>
+
+				<p>For a 17.5mm offset frame, use an asymmetric offset rim (more offset the better) or a fatbike rim with a double row of spoke holes (but make sure the width between the holes is not too great). A 28mm offset frame definitely requires a fatbike rim with a double row of spoke holes. Anyway, do some calculations and keep an eye on tension balance, and always read the notes displayed with the calculation.</p>
+
+
+				<h2>Fatbike offset forks</h2>
+
+				<p>Offset frames can have a matching offset fork. For example, the Surly Pugsley has two fork options, a 100mm symmetrical fork, and a 135mm 17.5mm offset fork. With an offset fork you actually build a wheel that is identical to the rear wheel, so for offset Fatbike front wheels, select a rear wheel in the selection list.</p>
+
+
+			</div>
+
+			<div class="info" id="infoSpokes">
+				<h1>Spokes</h1>
+				<p>The number of spokes in your wheel.</p>
+				<p>If the required number is not in the list, change the input to User Input (see the Help guide).</p>
+
+			</div>
+
+			<div class="info" id="infoCross">
+
+				<h1>Cross</h1>
+				<p>When choosing the number of crosses, you should take into account the following:</p>
+				<ul>
+				<li>Spoke entry angle. Ideally this should be no more than 8 degrees.
+				</li><li>Spoke head clearance. The spoke should not overlap the head of the adjacent spoke.
+				</li></ul>
+				<p>The values for spoke entry angle and spoke head clearance are shown in the spoke length calculation, click those headings in the calculation for more information.</p>
+
+
+				<h2>Radial lacing</h2>
+				<p>For radial lacing select 0 cross.</p>
+
+				<p>When radial lacing, lace the spokes with the heads out (elbows in). This reduces the stress on the hub flange, and for dished wheels helps improve the left/right tension balance. Lacing heads out results in a slightly shorter spoke length, and the calculator will make the necessary adjustment.</p>
+
+				<h1>Straight pull hub cross pattern</h1>
+				<p>With a straight pull hub you have no choice with the cross pattern because it's dictated by the hub design. Spoke head clearance does not apply to straight pull hubs.</p>
+
+				<h2>Shimano straight pull hub cross count</h2>
+				<p>The description for Shimano straight pull hubs is misleading and confusing where it says <i>Intersections: 3 cross only including spoke heads in hub shell. Some spoke calculators may call this 2 cross</i>.</p>
+
+
+				<p>The cross in the hub shell should not be counted, because it is not a cross for spoke length purposes. For this calculator you should not include the hub shell cross, and in this example, the cross value will be 2.</p>
+
+
+
+			</div>
+
+			<div class="info" id="infoSpokeDia">
+				<h1>Spoke diameter</h1>
+				<p>The spoke diameter is used when calculating the elastic elongation of the spoke due to spoke tension. The elongation is then used to determine a more accurate spoke length. It's therefore important to specify the correct diameter of the spokes you are using.</p>
+
+				<h2>Round spokes</h2>
+				<p>Diameter of the spoke. For a butted (swaged) spoke, use the diameter of the central portion.</p>
+				<p>If the required diameter is not in the list, change the input to User Input (see the main help guide).</p>
+
+
+				<h2>Bladed spokes</h2>
+				<p>Bladed spokes are made by flattening a round spoke. For a bladed spoke use the round spoke equivalent. For example:</p>
+
+				<table class="tabulatedData">
+					<thead>
+						<tr><th>Spoke</th><th>Diameter
+					</th></tr></thead><tbody>
+						<tr><th>Sapim CX-Ray</th><td>1.5
+						</td></tr><tr><th>DT Aerolite</th><td>1.5
+						</td></tr><tr><th>DT Aerospeed</th><td>1.8
+						</td></tr><tr><th>DT Aerocomp</th><td>1.8
+				</td></tr></tbody></table>
+
+				<p>If your bladed spoke is not listed, then ask the spoke manufacturer what the diameter of the spoke is before being forged (their website doesn't usually specify this, so you need to ask).</p>
+
+
+			</div>
+
+
+			<div class="info" id="infoCalcLog"><h1>Calculation stopped</h1><p>Data errors</p></div>
+
+			<div class="info" id="infoPrint">
+
+				<p id="printNotOK"></p>
+
+				<div id="printOK">
+					<p id="printNames" style="color:#c00; margin:0; padding:0;"></p>
+
+					<textarea id="printTextArea" style="margin:0;"></textarea>
+
+					<p><button id="printButton"></button></p>
+
+				</div>
+
+			</div>
+
+			<div class="info" id="infoSpokeLengths">
+				<h1>How to round the spoke lengths</h1>
+
+				<p>Always round the fractional spoke lengths <b><span style="color:#f00;">up</span></b> and never down.</p>
+
+				<p>The calculated spoke length will reach the point where you measured the rim erd, and you are advised to measure the erd using the technique shown in this guide. The calculated lengths are therefore the recommended minimum, so always round the fractional spoke lengths up. You can round up by up to 2mm, which means you can always find an even or odd size spoke length.</p>
+
+				<p>Here are some examples of how you would select an even or odd size based on the calculated length.</p>
+
+				<table class="tabulatedData">
+					<thead>
+						<tr><th>Calc</th><th>Even</th><th>Odd</th><td style="text-align:left">
+					</td></tr></thead><tbody>
+						<tr><th>260.0</th><td style="white-space:nowrap">260<br> 262</td><td>261</td><td style="text-align:left">260 on the even side is the absolute minimum, still okay, but 262 will be easier to build.
+						</td></tr><tr><th>260.4</th><td>262</td><td>261</td><td style="text-align:left">Do not choose 260 for the even size because it will be too short.
+						</td></tr><tr><th>260.8</th><td>262</td><td>261</td><td style="text-align:left">
+						</td></tr><tr><th>261.0</th><td>262</td><td style="white-space:nowrap">261<br>263</td><td style="text-align:left">261 on the odd side is the absolute minimum, still okay, but 263 will be easier to build.
+						</td></tr><tr><th>261.2</th><td>262</td><td>263</td><td style="text-align:left">Do not choose 261 for the odd size because it will be too short.
+				</td></tr></tbody></table>
+
+				<h2>Radial lacing</h2>
+				<p>You should lace a radial wheel with the spoke heads out (elbows in), doing it the other way (heads in) puts more stress on the hub flange as the spoke is pulled over it. With all the spokes lying on the inside, the hub flange offset distance is reduced, and for radial lacing the calculator will subtract 2mm from your flange offset dimension. You can see this is the calculation log.</p>
+
+
+				<p>The biggest influence on spoke length accuracy is the accuracy of the hub and rim measurements, particularly the rim erd. If you use data found on the Internet, then there's a good chance it will be wrong, and so will the resulting spoke lengths. You should always measure your own components exactly as shown in the guide (click the headings in the data entry form).</p>
+
+			</div>
+
+			<div class="info" id="infoSpokeClearance">
+				<h1>Spoke head clearance</h1>
+				<p>The distance between the spoke and the head of the adjacent spoke.</p>
+				<p>As the number of crosses increases, the spoke moves closer to the head of the adjacent spoke until it touches (clearance zero), then overlaps it (clearance negative). The	overlap should be avoided because it puts an unnecessary bend in the spoke close to the elbow, and it also interferes when placing the spokes in the hub.</p>
+
+				<div style="float:left; width:238px; margin:0 20px 40px 0; text-align:center;">
+					<img alt="Spoke head clearance touching" src="./clearance-okay.png" width="238" height="131">
+					<br><b>Touching</b>
+				</div>
+				<div style="float:left; width:298px; text-align:center;">
+					<img alt="Spoke head clearance overlapping" src="./clearance-overlap.png" width="298" height="131">
+					<br><b>Overlap</b>
+				</div>
+
+				<p style="clear:both;">If the spoke head clearance is a small amount (say 0.5mm), then it still should be okay. Anything more than this then it's not advisable.</p>
+
+				<p>Note - the calculation uses a spoke head diameter of 4mm.</p>
+
+
+			</div>
+
+			<div class="info" id="infoSpokeAngle">
+				<h1>Spoke entry angle</h1>
+				<p>The angle the spoke makes when entering the rim.</p>
+				<img alt="Spoke line entry angle" style="float:right; margin-left:3em;" src="./entry-angle.png" width="186" height="218">
+				<p>Standard nipples can swivel about 6 or 7 degrees. Nipples with a spherical design such as the Sapim Polyax and DT ProHead can swivel more (9 degrees for the Polyax).</p>
+
+				<p>For your hub, rim and spoke count, choose a cross pattern that results in a spoke entry angle of no more than 8 degrees, otherwise the stress on the spoke threads can result in fatigue failures (the spoke could snap at the threads).</p>
+
+				<p>Some rims are drilled at an angle to allow the spoke to follow the natural spoke line, in which case the spoke entry angle is not an issue. Examples of this are the WTB rims with 4D angled drilling.</p>
+
+			</div>
+
+			<div class="info" id="infoSpokeTension">
+				<h1>Tension ratio</h1>
+				<p>This is the ratio between the left and right side spoke tensions. For example, if the spoke tension on the 100% side of the wheel is 120kg and the other side is 60%, then the tension in that side would be 72kg.</p>
+
+				<p>This is for information only. When you build your wheel, this is how it will turn out. Tension ratio is calculated using the hub flange offsets and the spoke lengths. There is nothing you can do during building that will affect this ratio.</p>
+
+				</div>
+
+
+			<div class="info" id="infoLeftRight">
+
+				<p>Left and right is from the perspective of the rider.</p>
+
+				<h2>Left side</h2>
+
+				<p>Sometimes referred to as the <i>non drive side</i>. For disc brake wheels, the disc rotor is located on the left side.</p>
+
+				<h2>Right side</h2>
+
+				<p>Sometimes referred to as the <i>drive side</i> (where the chain and sprockets are).</p>
+			</div>
+
+			<div class="info" id="infoTripletSpokes">
+
+			</div>
+
+			<div class="info" id="infoLaceOption">
+
+
+			</div>
+
+			<div class="info" id="infoG3width">
+
+
+			</div>
+
+			<div class="info" id="infoWheelData">
+				<div id="calculationData"></div>
+			</div>
+
+			<div class="info" id="infoSvgHelp">
+
+
+				<h2 id="mySettings"></h2>
+
+			</div>
+
+
+
+
+			<div class="infoFileData" id="infoFileData">
+
+				<input id="inputFile" type="file" style="display:none">
+				<p id="getInputFile"><span class="getInputFile"></span></p>
+
+				<div id="dataFileWrapper" class="dataFileWrapper">
+
+					<div id="dataSticky"></div>
+					<div id="dataNormal"></div>
+
+				</div>
+
+			</div>
+
+
+			<div style="display:none;" id="svgContainer">
+
+				<div class="svgWrap">
+					<svg width="600" height="600" viewBox="-300 -300 600 600">
+
+						<g id="svgScale">
+							<g id="svgWheel">
+								<g id="svgRim" class="svgRim"></g>
+
+								<g id="svgGuidesLeft" class="svgGuides"></g>
+								<g id="svgGuidesRight" class="svgGuides"></g>
+
+								<g id="svgHubLeft" class="svgHubWheel"></g>
+								<g id="svgSpokesLeft" class="svgSpokes"></g>
+
+								<g id="svgHubRight" class="svgHubWheel"></g>
+								<g id="svgSpokesRight" class="svgSpokes"></g>
+							</g>
+						</g>
+
+					</svg>
+				</div>
+
+				<div id="drawingParametersWrap">
+					<div id="drawingParameters"></div>
+					<h1>Line lengths</h1>
+					<p>These are <b>not</b> spoke lengths!</p>
+					<div id="lineLengthWrap">
+						<div id="lineLengthLeft"></div>
+						<div id="lineLengthRight"></div>
+					</div>
+				</div>
+
+			</div> <!-- svgContainer -->
+
+
+			<div id="wheelComponentsPrint"></div> <!-- hub and rim names on PRINT -->
+
+
+			<div id="calculationWrap" class="displayNormal" style="display: none;"> <!-- toggled to displaySave by program when Save option clicked -->
+
+				<div id="wheelComponentsSave"></div> <!-- hub and rim names for SAVE option -->
+
+				<div id="saveDataExtra">
+					<table>
+
+						<tbody><tr><td>Spoke type</td><td>
+						</td></tr><tr><td style="white-space: nowrap;">Spoke lengths</td><td>
+						</td></tr><tr><td>Notes</td><td>
+						</td></tr><tr><td>Date </td><td><span id="calculationDate"></span>
+						</td></tr><tr><td>Calculator link  </td><td><span id="calculationLink"></span>
+
+					</td></tr></tbody></table>
+				</div>
+
+
+				<div id="singleLength">
+
+					<table>
+						<thead>
+							<tr><th style="text-align:left; padding:0;"><span id="reCalcPrompt">Re calculate</span>
+							</th><th><span id="showLeft" class="showLink">Left</span>
+							</th><th><span id="showRight" class="showLink">Right</span>
+						</th></tr></thead><tbody id="spokeInfo">
+							<tr><th>Cross</th><td id="crossPrintL"></td><td id="crossPrintR">
+							</td></tr><tr><th>Spoke diameter</th><td id="diaPrintL"></td><td id="diaPrintR">
+						</td></tr></tbody><tbody>
+							<tr><th><span id="spokeLengths" class="showLink">Spoke lengths</span></th><td id="sL"></td><td id="sR"></td></tr></tbody><tbody id="userLengths">
+							<tr><th>My selection</th><td></td><td>
+							</td></tr><tr><th>Ideal length</th><td></td><td>
+							</td></tr><tr><th>Alternative length</th><td></td><td>
+						</td></tr></tbody><tbody id="spokeHeadClearance">
+							<tr><th><span id="spokeClearance" class="showLink">Spoke head clearance</span></th><td id="cL"></td><td id="cR"></td></tr></tbody><tbody>
+							<tr><th><span id="spokeAngle" class="showLink">Spoke entry angle</span></th><td id="eL"></td><td id="eR"></td></tr><tr><th><span id="spokeTension" class="showLink">Spoke tension ratio</span></th><td id="tL"></td><td id="tR"></td></tr></tbody></table>
+
+				</div> <!-- single length -->
+
+				<div id="multiWrap">
+					<div><span id="reCalcPromptMulti">Re calculate</span></div>
+					<div id="multipleLength">
+
+					</div>
+				</div>
+
+				<div id="calculationNotes"></div>
+
+				<div style="width:70%; margin-top:1rem; padding:0.5rem; background-color:#d3ffe3;">
+					<h2>THIS CALCULATOR WILL BE REMOVED ON APRIL 1, 2024</h2>
+					<p>Click "About" in the above menu for more information.</p>
+
+
+				</div>
+
+				<div class="wheelDescription printHide">
+					<span id="wheelTitle" style="padding:0.3rem 0"></span>
+					<div id="wheelComponentNames"></div>
+				</div>
+
+
+				<div id="dataUsed"></div>
+
+				<div id="printWrap">
+					<div id="printText" style="display: none;"></div> <!-- User supplied text on PRINT -->
+					<div id="printDate"></div>
+				</div>
+
+				<p style="display:none;" class="printHide"><span id="showWheelData" class="showLink">Calculation URL</span></p>
+
+
+			</div> <!-- calculationWrap -->
+
+		</div> <!-- contentWrapper -->
+
+			<div id="badBrowser" style="display: none;">
+
+			</div>
+
+
+	</div> <!-- content -->
+
+</div> <!-- layout (flex) -->
+
+
+
+
+
+
+</body></html>

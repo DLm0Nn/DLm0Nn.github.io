@@ -1,0 +1,1195 @@
+* { box-sizing: border-box;}
+
+body {
+
+	--header-color : #f9f9fb;
+	--config-color : #ddd;
+	
+	--info-color : #f9f3d2;
+	
+	--offset-color : #e4f7e3; /* Flange offset calculator */
+	
+	margin:0;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+
+}
+
+#badBrowser {
+	padding:2rem;
+	width:70%;
+	margin-bottom:1rem;
+}
+
+#header {
+	width:100%;
+	position: sticky;
+	top: 0;
+	padding:15px 5px;
+	background-color: var(--header-color);
+	border-bottom:1px solid #fff;
+}
+
+
+#menu2 {
+	margin-top:10px;
+}
+
+
+.layout { 
+	display:flex;
+
+}
+
+#leftBar {
+	background-color: var(--header-color);
+
+}
+
+#leftWrap { 
+	position:sticky;
+	top:0;
+	height:100vh;
+	overflow-y: auto;
+	
+	padding:15px 2rem;	
+}
+
+#leftWrap th {
+	white-space: nowrap;
+}
+
+
+#leftWrap::-webkit-scrollbar {
+    width: 6px;
+    background-color: #eee;
+
+}
+
+#leftWrap::-webkit-scrollbar-thumb {
+    background-color: #999;
+}
+
+.wheelSelector {
+
+	margin-bottom:15px;
+}
+
+#content {
+	background-color:#fff;
+	margin-bottom:1rem;
+	flex-grow: 1;
+}
+
+#contentWrapper {
+	margin:1rem 0 0 2rem;
+}
+
+select {
+    padding: 0.1em;
+}
+
+input {
+	border: 1px solid #999;
+    padding: 0.2em;
+    outline-style:none;
+    border-radius: 4px;
+}
+
+
+input:focus {
+
+}
+
+
+#leftWrap table {
+	border-radius:5px;
+	margin-bottom:15px;
+}
+
+#leftWrap input { 
+	width: 3.5rem;
+} 
+
+#leftWrap input.small {
+	width: 2rem;
+}
+
+
+
+
+
+
+#leftWrap th {
+	text-align:left;
+	padding:5px 10px;
+}
+
+#leftWrap td {
+	padding:5px 10px;
+}
+
+#messageFixedWrap {
+	display:none;
+	border:1px solid #000;
+	border-radius:5px;
+	background-color:#fcfcfc;
+	padding:0.5rem; 
+	margin:5px 20px 0 20px;
+}
+
+#messageFixedContent { }
+
+#mobileNoteWrap {display:none;}
+
+#saveDataInfoWrap {
+	display:none;
+	width:40%;
+}
+
+#saveDataInfoWrap div {
+	margin:10px 50px 10px 10px;
+	border-radius:5px;
+    border: 1px solid #ccc; 
+	padding:1rem;
+}
+
+h1 {
+	font-size:1.3rem;
+	margin-bottom:0;
+}
+
+h2 {
+	font-size:1.1rem;
+	margin-bottom:1rem;
+}
+
+p {
+	margin-top:0;
+	margin-bottom:0.5rem;	
+}
+
+
+ul {
+	margin-top:0.5rem;
+	padding-left:2rem;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+a {
+	text-decoration:none;
+	color:#6565d7;
+}
+
+a:hover {
+	color:#00f;
+}
+
+#hubName,#rimName {
+	height: 24px;
+	width:15rem;
+}
+
+#togglePair {
+	cursor:pointer;
+}
+
+
+@media screen and (max-width:1024px) {
+
+	#hubName,#rimName {
+		width:10rem;
+	}
+}
+
+
+
+#calculationWrap {
+	padding:1rem 2rem;
+}
+
+
+#infoHeader {
+	background-color:#fff;
+	display:none;
+	width:70%;
+	text-align:right;
+	padding:0px;
+	border:none;
+	
+	line-height: 1;
+
+}
+
+.infoClose { 
+	cursor:pointer;
+	color:#666;
+	
+	background-color:var(--info-color);
+	border-radius:5px;
+	padding:5px;
+	margin:0;
+}
+
+.info { 
+	display:none;
+	width:70%;
+	padding:1rem 2rem;
+		
+	background-color:var(--info-color);
+	border-radius:5px;
+}
+
+#message {
+	display:none;
+	width:70%;
+	padding:1rem 2rem;
+		
+	background-color:#e8f2dc;
+	border-radius:5px;
+
+
+	margin-bottom:1rem;
+}
+
+.infoFileData { 
+	display:none;
+	width:90%;
+	padding-top:1rem;
+}
+
+
+
+
+.showLink,
+.selectLink,
+.svgLink,
+.inputLink {
+	cursor:pointer;
+	padding: 0.2rem 0.3rem;
+	border-radius:4px;
+
+}
+
+
+.showLink:hover,
+.selectLink:hover,
+.inputLink:hover {
+	
+	
+}
+
+.showLinkActive {
+	cursor:pointer;
+	background-color: #f5dada;
+	padding: 0.2rem 0.3rem;
+	border-radius:4px;
+}
+
+
+#wheelComponentNames {
+	font-family:monospace;
+}
+
+	
+.settingsActive { /* user input settings link. does not change <td> colors when clicked */
+	cursor:pointer;
+}
+
+.selectLink {color:#0000ff;}	/* settings info dialog */
+.inputLink  {color:#006f00;}
+
+
+.tabulatedData { margin-bottom:2rem;}
+
+.tabulatedData th,
+.tabulatedData td { 
+	padding:0.3rem 1rem;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	text-align:center;
+}
+
+.tabulatedData thead th {
+	text-align:left;
+}
+
+.tabulatedData tbody th {
+	text-align:left;
+	font-weight:normal;
+}
+
+#calculationUrl { 
+	word-wrap: break-word;
+}
+
+
+
+span.errorText { color:#f00;}	/* calcLog errors */ 
+	
+span.warning { 					/* calcLog warning message. */
+	color:#cc0000;
+	font-weight:bold;
+}
+
+
+#hub             { background-color: var(--config-color);}
+#rim             { background-color: var(--config-color);}
+#frameOffsetWrap { background-color: var(--config-color);}
+#config          { background-color: var(--config-color);}
+
+
+#multiWrap table td {
+	border:1px solid #ccc;
+	
+}
+
+#multiWrap table {
+	margin-right:5rem;
+}
+
+#multipleLength {
+	display:flex;
+	align-items: flex-start;
+}
+
+.multiLeading {
+	color:#d71212;
+}
+
+.multiTrailing {
+	color:#053e97;
+}
+
+.multiRadial {
+	color:#616c11;
+}
+
+/*** displayNormal : standard view of the calculation result ***/
+
+.displayNormal .multiHeading {
+	text-align:center;
+	padding: 0 0 1rem 0;
+}
+
+.displayNormal thead th {
+	text-align:center;
+	padding:0.5rem;
+}
+
+.displayNormal th {
+	text-align:left;
+	padding-right:2rem;
+}
+
+.displayNormal td {
+	padding:0.5rem;
+	text-align:center;
+}
+
+.displayNormal td:nth-child(2),  /* Spoke length table vertical bar between Left | Right */
+.displayNormal th:nth-child(2) {
+	border-right:1px solid #ccc;
+}
+
+.displayNormal tr {
+	border-bottom:1px solid #ccc;
+}
+
+.displayNormal #dataUsed th {
+	text-align:left;
+	padding-right:2rem;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+
+.displayNormal #dataUsed td {
+	padding:0.3rem 1rem;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	text-align:center;
+}
+
+.displayNormal #calculationDate {
+	display:none;
+}
+
+
+.displayNormal #wheelComponentsSave {
+	display:none;
+}
+
+.displayNormal #saveDataExtra {
+	display:none;
+}
+
+
+/*** displaySave : when the save menu option is clicked - set by program ***/
+
+.displaySave #wheelComponentsSave {
+	display:block;
+}
+
+.displaySave #saveDataExtra {
+	display:block;
+}
+
+
+.displaySave {
+	color:#000;
+}
+
+.displaySave h1{
+	margin:0 0 15pt 0;
+	font-weight:normal;
+	font-size:16pt;
+
+}
+
+.displaySave h2{
+	margin:0 0 15pt 0;
+	font-weight:normal;
+	font-size:14pt;
+
+}
+
+.displaySave p {
+	margin:10pt 0 5pt 0;
+	font-size:11pt;
+}
+
+
+.displaySave #showWheelData { /* Link to calculation URL + fileData strings */
+	display:none;
+}
+
+.displaySave .wheelDescription { /* Wheel description between calculation and dataUsed */
+	display:none;
+}
+
+.displaySave thead th {
+	text-align:center;
+}
+
+.displaySave th {
+	padding:5pt 5pt 5pt 5pt;
+	text-align:left;
+	border:1px solid #ccc;
+	font-weight:normal;
+	font-size:11pt;
+}
+
+.displaySave td {
+	padding:5pt 5pt 5pt 5pt;
+	text-align:center;
+	border:1px solid #ccc;
+	font-weight:normal;
+	font-size:11pt;
+}
+
+
+
+
+/*** End of save view styles ***/
+
+
+#saveDataExtra { margin:1rem 0; }
+
+#saveDataExtra td { text-align:left; }
+
+#saveDataExtra td:nth-child(2) {width:30rem;}
+
+
+#saveDataMenuLink {
+	
+}
+
+span.bad {						/* span.bad used in Display Type help guide. */ 
+	background-color:pink;
+	padding:0 0.2rem;
+}
+
+
+#showWheelData {
+	font-family:monospace;
+	cursor:pointer;
+}
+
+/* Shown in the spoke table when re calculation is required. */
+
+#reCalcPrompt,
+#reCalcPromptMulti { 
+	background-color:#ddbb30;
+	color:#fff;
+	padding:0.2rem 1rem;
+	cursor:pointer;
+	visibility:hidden;
+}
+
+
+#reCalcPromptMulti { 
+	font-weight:bold;
+}
+
+/* Data used table. This info is only shown on the print. */
+
+#userLengths,
+#spokeInfo {
+	display:none;
+}
+
+
+#printTextArea {  /* textarea user input on print screen. */
+	width:100%;
+	height:80px;
+	margin-bottom:1rem;
+	padding:0.5rem;
+}
+
+
+#printTextWrap {
+	display:none;
+}
+
+
+
+#calculationNotes {
+	margin:2rem 0;
+}
+
+
+.wheelDescription {
+	margin:2rem 0 1rem 0;
+}
+
+
+
+#freeFormatSettings td {
+	padding-right:2rem;
+}
+
+
+#wheelComponentsPrint {
+	display:none;
+}
+
+.print-show {
+	display:none;
+}
+
+/*** Flange offset calculator ***/
+
+#offsetCalcWrap {
+
+	border:1px solid #999;
+	padding:0.5rem;
+}
+
+#offsetCalcWrap table {
+	border-collapse: separate;
+    border-spacing: 0.5rem;
+}
+
+
+
+.offsetValue {
+	padding-right:0.7rem;
+}
+
+.offsetResult {
+	pointer-events: none;
+	background-color:var(--info-color); /* Set to var(--offset-color) by program */
+}
+
+.offsetW {
+	pointer-events: none;
+	background-color:var(--info-color);
+}
+
+#offsetCalcWrap input {
+	width:3rem;
+}
+
+#offsetButton {
+	visibility:hidden;
+	cursor:pointer;
+	text-align:right;
+	padding-right:0.7rem;
+}
+
+.offsetButton {
+	text-align:right;
+	padding-right:0.7rem;
+}
+
+/***  svg  ***/
+
+#svgContainer {	/* initial display setting, then inline styles set by program */
+	display:none;
+
+}
+
+.svgMenuWrapOff {	/* Two classes added to element #svgMenuWrap by program */
+	 margin-left:0.5rem;
+	 padding:0.5rem;
+	 
+	 display:none;
+}
+
+.svgMenuWrapOn {	
+	margin-left:0.5rem;
+	padding:0.5rem;
+	
+	box-shadow: #bdb9b7 0px 0px 4px 0px;
+	background-color:#fdfdfc; 
+	border-radius: 5px;
+	 
+	display:none;
+}
+
+
+#svgMenu {
+	display:none;
+}
+
+
+.svgLink:hover {
+	
+}
+
+.menuOn {
+	color:#000;
+	background-color:#bae2f5;
+}
+
+.svgReCalc {
+	font-weight:bold;
+	background-color:#f00;
+	color:#fff;
+	visibility:hidden;
+}
+
+.svgWrap {
+	margin:1rem 3rem;
+}
+
+.svgRim {
+	fill:#fff;
+	stroke:#000;
+	stroke-width:1px;
+}
+
+.svgHubWheel {
+	stroke-width:1px;
+	fill:#fff;
+	stroke:#000;
+	
+	xfill-opacity:0.8;
+}
+
+.svgHubDetail {
+	stroke-width:1px;
+	fill:#f5f5f0;
+	stroke:#fff;
+}
+
+.svgSpokes {
+	stroke-width:1px;
+	stroke:#000;
+	stroke-linecap:round;
+}
+
+.svgSpokeHide {
+	visibility:hidden;
+}
+
+.svgSpokesLeftColor {
+	stroke-width:1px;
+	stroke:#0c0;
+	stroke-linecap:round;
+}
+
+.svgGuides {
+	stroke-width:1px;
+	stroke-dasharray:4 4;
+	stroke:salmon;
+	display:none;
+}
+
+#drawingParametersWrap {	/* Used by Svg.print */
+	display:none;
+}
+
+
+
+#drawingParameters { 
+	margin-top:1rem;
+}
+
+
+#drawingParametersWrap th,
+#drawingParametersWrap td {
+	border:1px solid #ccc;
+	padding:0.5rem;	
+
+}
+
+#drawingParameters th {
+	text-align:left;
+}
+
+#drawingParameters td {
+	text-align:center;
+}
+
+
+#lineLengthWrap {
+	display:flex;
+}
+
+#lineLengthLeft {
+	margin-right:5rem;
+}
+
+#lineLengthWrap td {
+	padding:0.25rem;
+}
+
+#lineLengthLeft,
+#lineLengthRight {
+	display:none;
+}
+
+.spokeZero {
+	 stroke:#f00; 
+}
+
+/*** End of svg ***/
+
+
+/*** File data ***/
+
+#calculationData { /* within Wheel data info box */
+	overflow-wrap: anywhere;
+}
+
+
+#calculationData p {
+	margin:0 0 1rem 0;
+}
+
+#calculationData span {
+
+	cursor:pointer;
+}
+
+p#getInputFile {
+	text-align:right;
+	padding-right:1rem;
+	margin: 0 0 0.8rem 0;
+}
+
+.getInputFile {
+
+	font-family:monospace;	
+	cursor:pointer;
+}
+
+.getInputFile:hover,
+.dataRemove:hover {
+	color:#00d;
+}
+
+
+.dataHeader {
+	text-align:right;
+	padding:0;
+	margin:0;
+}
+
+.dataRemove {
+	cursor:pointer;
+	color:#999;
+	font-family:monospace;
+	padding:0;
+}
+
+.dataFile {
+	background-color:#fcfcfc;
+	margin-bottom:2rem;
+	padding: 0 0.6rem 0.6rem 0.6rem;
+}
+
+
+.configLine {
+	cursor:pointer;
+	color:#00a;
+	padding: 0.2rem;
+}
+
+
+.configLine:hover,
+.dataLine:hover {
+	background-color:#eee;
+}
+
+.dataItem {
+	font-weight:normal;
+	text-align:left;
+	padding:0.1em 1em 0.1em 0.2rem;
+	cursor:pointer;
+	color:#00a;
+	width:20rem;
+}
+
+.dataLine td {
+	min-width:3rem;
+	text-align:right;	
+}
+
+tr.dataError {
+	background-color:salmon;
+}
+
+td.dataFr { /* Front/Rear text for the data item */ 
+
+	font-family:monospace;
+}
+
+td.dataDate {
+	color:#999;
+	padding-left:2rem;
+	font-family:monospace;
+}
+
+
+.dataFileWrapper h1 {  
+	margin: 0 0 0.5rem 0.2rem;
+	font-size:1.5rem;
+	border-bottom: 1px solid #999;
+}
+
+.dataFileWrapper h2 {  
+	margin:0.5rem 0 0 0.2rem;
+	font-size:1.2rem;
+}
+
+
+.dataFileWrapper p {
+	margin: 0 0 0.2rem 0;
+	padding-left:0.2rem;
+	width: 85%;
+}
+
+p.dataLink a { 
+	color:#00a;
+	padding:0.2rem 0;
+}
+
+p.dataLink a:hover {
+	color:#00a;
+	background-color:#eee
+}
+
+
+.dataFileWrapper table {
+	margin:0.5rem 0;
+}
+
+
+
+
+
+
+
+
+/*** End of file data ***/
+
+
+
+/****  Print  ***/
+
+
+@media print {
+
+
+	body {
+		margin:0;
+		padding:0;
+	}
+
+	#content { 
+		margin:0;
+		padding:0;
+	}
+
+	.svgWrap {
+		margin:0;
+		padding:0;
+		text-align:center;
+	}
+
+	#contentWrapper {
+		margin:0;
+		padding:0;
+	}
+	
+	.info, 
+	#infoHeader, 
+	#infoClose,
+	#header, 
+	#leftWrap, 
+	#messageFixedWrap, 
+	#saveDataInfoWrap,  
+	#mobileNoteWrap,
+	#wheelComponentsSave { 
+
+		display:none; 
+	}
+
+	#wheelComponentsPrint {
+		display:block;
+		padding-right:1rem;
+		border:1px solid #000;
+	}
+	
+	#wheelComponentsPrint h1 {
+		text-align:right;
+		font-size:20px;		
+	}
+
+	#calculationWrap thead th { /* Overrides any styles set by .displayNormal */
+		color:#000;
+		text-align:center;
+		padding:0.5rem;
+	}
+
+	#calculationWrap th {
+		border-bottom:1px solid #ccc;
+		text-align:left;
+		padding:0.5rem 2rem 0.5rem 1rem;
+	}
+
+	#calculationWrap .multiHeading {
+		text-align:center;
+	}
+
+	#calculationWrap td {
+		padding:0.5rem 2rem;
+		letter-spacing: 0.8px;
+		text-align:center;
+	}
+
+	#multipleLength table {
+		margin-right:2rem;
+	}
+
+	#multipleLength td {
+		padding:0.5rem;
+	}
+
+	#spokeInfo {
+		display:table-row-group;
+	}
+
+	#userLengths {
+		display:table-row-group;
+		border:2px solid #000;
+	}
+
+	#userLengths td {
+		padding-top:1.5rem;
+		padding-bottom:1.5rem;
+	}
+
+
+	#dataUsed th {
+		text-align:left;
+		padding-right:2rem;
+		border-right:1px solid #ccc;
+		border-bottom:1px solid #ccc;
+	}
+
+	#dataUsed td {
+		padding:0.3rem 1rem;
+		border-right:1px solid #ccc;
+		border-bottom:1px solid #ccc;
+		text-align:center;
+	}
+
+	#calculationNotes {
+		margin-top:2rem;
+	}
+
+
+	.printHide { display:none; }	/* Spoke dia and cross are hidden on the print.*/
+	.printShow { display:block;}
+
+	
+
+	#printText {	/* User text on print. */
+		border:1px solid #000;
+		border-radius:3px;
+		padding:0 0.5rem ;
+		clear:both;
+		margin-top:1rem;
+	}
+
+	#printText h1 {
+		margin:0;
+	}
+
+	#printText p {
+		margin:0.2rem 0;
+	}
+
+
+	#printDate {
+		margin-top:1rem;
+	}
+		
+	#saveDataExtra { display:none; }
+
+
+} /***  End of print  ***/
+
+
+/***  Small screen  ***/
+
+@media screen and (max-width:760px) {
+
+	#content {
+		width:100%;
+		padding:10px;		
+	}
+
+	#contentWrapper {
+		margin:0;
+	}
+
+	#calculationWrap {
+		padding:1rem 0;
+	}
+
+	#infoHeader {
+		width:100%;
+		margin-top:10px;
+	}
+
+	#header {
+		padding:5px 10px;
+		background-color:#f3f3f3;
+		height:auto;
+	}
+
+	#header span {
+		margin-right:0.3rem;
+		padding:0.1rem;
+	}
+
+	#hubName, #rimName {
+		height: auto;
+		margin-top: 4px;;
+		width: 15rem;
+    
+    }
+	.layout {
+		display:block;
+	}
+	
+	#leftWrap {
+		width:100%;
+		position:static;
+		height:auto;
+		padding:10px;
+	}
+
+	#multipleLength {
+		display:block;
+
+	}
+
+
+	#saveDataInfoWrap {
+		margin:0px;
+		width:100%;
+	}
+	
+	.info {
+		width:100%;
+		padding:10px;
+	}
+	
+	.infoFileData {
+	    width: 100%;
+	}
+	
+	span#showWheelType {
+		padding-right:1rem;
+	}
+	
+	#wheelType, #hubName {
+		margin-right:10px;
+	}
+
+	#fr, #rimName {	margin-right:10px;}
+
+
+	#mobileNoteWrap {
+		display:block;	
+		border-radius:5px;
+		border: 1px solid #95a090;
+		padding:0.5rem;
+		margin-left:10px;
+	}
+
+	#message {
+		width:100%;
+		padding:10px;
+	}
+
+	.showLink:hover { 
+		background-color:#d3d5b2;
+	}
+	
+	#freeFormatSettings td { /* more room for finger taps */
+		padding-right:2rem;
+		padding-bottom:1rem;
+	}
+
+
+	.dataFile td:nth-child(n+3) { /* truncate the row so it fits */
+	
+		display:none;
+	}
+
+	.dataFileWrapper p {
+		margin: 0 0 0.2rem 0;
+		padding-left:0.2rem;
+		width: 100%;
+		
+	}
+	
+	.offsetValue {
+		padding-right:0.5rem;
+	}
+	
+	
+	#offsetCalcWrap input {
+		width:2.5rem;
+	}
+	
+	#offsetButton {
+		padding-right:0.5rem;
+	}
+	
+	.offsetButton {
+		padding-right:0.5rem;
+	}
+
+}	/*** End of small screen  **/
+
